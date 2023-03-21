@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_real_estate_order_tree" model="ir.ui.view">
+    <field name="name">real.estate.order.tree</field>
+    <field name="model">real.estate.order</field>
+    <field name="arch" type="xml">
+        <tree string="Real Estate Orders" decoration-info="invoice_status == 'to invoice'" decoration-muted="state == 'cancel'">
+            <field name="name" string="Name"/>
+            <field name="description" string="Description" />
+            <field name="postcode" string="Postcode"/>
+            <field name="date_availability" string="Date Availability"/>
+            <field name="expected_price" string="Expected Price"/>
+            <field name="selling_price" string="Selling Price"/>
+            <field name="bedrooms" string="Bedrooms" optional="hide"/>
+            <field name="living_area" string="Living Area" optional="hide"/>
+            <field name="facades" string="Facades" optional="hide"/>
+            <field name="garage" string="Garage" optional="hide"/>
+            <field name="garden" string="Garden" optional="hide"/>
+            <field name="garden_area" string="Garden Area" optional="hide"/>
+            <field name="garden_orientation" string="Garden Orientation" optional="hide"/>
+ </tree>
+            </field>
+        </record>
+
+</odoo>
