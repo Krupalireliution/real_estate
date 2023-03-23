@@ -13,12 +13,13 @@ from odoo.tools import float_is_zero, html_keep_url, is_html_empty
 from odoo.addons.payment import utils as payment_utils
 
 
+
 class RealEstate(models.Model):
-    _name = "real.estate"
+    _name = "real.estate.order"
     _description = "Real Estate"
 
 
-    name = fields.Char(string='Name', required=False, copy=False, readonly=False, default=lambda self: _('New'))
+    name = fields.Char(string='Name', required=False, copy=False, readonly=False)
     description = fields.Text(string='Description', required=False, copy=False, readonly=False)
     postcode = fields.Char(string='Postcode', required=False, copy=False, readonly=False)
     date_availability = fields.Date(string='Data Availability', required=False, copy=False, readonly=False)
@@ -28,7 +29,11 @@ class RealEstate(models.Model):
     living_area = fields.Integer(string='Living Area', required=False, copy=False, readonly=False)
     facades = fields.Integer(string='Facades', required=False, copy=False, readonly=False)
     garage = fields.Boolean(string='Garage', required=False, copy=False, readonly=False)
-    garden = fields.Boolean('Garden', required=False, copy=False, readonly=False)
+    garden = fields.Boolean(string='Garden', required=False, copy=False, readonly=False)
     garden_area = fields.Integer(string='Garden Area', required=False, copy=False, readonly=False)
-    garden_orientation =fields.Selection(string='Garden Orientation',
-       selection=[('north','North'), ('south','South'), ('east','East'), ('west','West')])
+    garden_orientation = fields.Selection([
+        ('north','North'),
+        ('south','South'),
+        ('east','East'),
+        ('west','West')
+    ])

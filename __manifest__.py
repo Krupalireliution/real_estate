@@ -6,15 +6,13 @@
     'name': 'Real Estate',
     'version': '1.1',
     'category': '',
-    'summary': '',
-    'description': """""",
-    'depends': [],
+    'depends': ['sale'],
     'data': [
         'security/ir.model.access.csv',
+        'views/real_estate_views.xml',
     ],
-    'demo': [],
+    'application': True,
     'installable': True,
     'auto_install': False,
-    'assets': {},
     'license': 'LGPL-3',
 }
