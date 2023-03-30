@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_properties_type_tree" model="ir.ui.view">
+        <field name="name">properties.type.tree</field>
+        <field name="model">properties.type</field>
+        <field name="arch" type="xml">
+            <tree string="Properties Type">
+                <field name="properties_type" string="Properties Type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_properties_type_form" model="ir.ui.view">
+        <field name="name">properties.type.form</field>
+        <field name="model">properties.type</field>
+        <field name="arch" type="xml">
+            <form string="Properties Type">
+                <sheet>
+                    <group>
+                        <gruop>
+                            <field name="properties_type" string="Properties Type"/>
+                        </gruop>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_properties_Type_search" model="ir.ui.view">
+        <field name="name">properties.type.search</field>
+        <field name="model">properties.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="properties_type" string="Properties Type"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="real_estate_properties_type_action" model="ir.actions.act_window">
+        <field name="name">Properties Type</field>
+         <field name="res_model">properties.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="real_estate_settings_menu"
+              name="Settings"
+              parent="real_estate.real_estate_order_menu_root"
+              sequence="2"/>
+
+    <menuitem id="real_estate_properties_type_menu"
+              name="Properties Type"
+              parent="real_estate.real_estate_settings_menu"
+              action="real_estate_properties_type_action"
+              sequence="2"/>
+
+</odoo>

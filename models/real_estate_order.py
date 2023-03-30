@@ -18,13 +18,15 @@ class RealEstate(models.Model):
     _name = "real.estate.order"
     _description = "Real Estate"
 
-
     name = fields.Char(string='Name', required=False, copy=False, readonly=False)
+    properties_type = fields.Char(string='Properties Type', required=False, copy=False, readonly=False)
     description = fields.Text(string='Description', required=False, copy=False, readonly=False)
     postcode = fields.Char(string='Postcode', required=False, copy=False, readonly=False)
+    properties_tags = fields.Char(string='Properties Tags', required=False, copy=False, readonly=False)
     date_availability = fields.Date(string='Data Availability', required=False, copy=False, readonly=False)
     expected_price = fields.Float(string='Expected Price', required=False, copy=False, readonly=False)
     selling_price = fields.Float(string='Selling Price', required=False, copy=False, readonly=False)
+    best_price = fields.Float(string='Best Price', required=False, copy=False, readonly=False)
     bedrooms = fields.Integer(string='Bedrooms', required=False, copy=False, readonly=False)
     living_area = fields.Integer(string='Living Area', required=False, copy=False, readonly=False)
     facades = fields.Integer(string='Facades', required=False, copy=False, readonly=False)
@@ -37,3 +39,7 @@ class RealEstate(models.Model):
         ('east','East'),
         ('west','West')
     ])
+    salesman = fields.Char(string='Salesman')
+    buyer = fields.Char(string='Buyer')
+    properties_type = fields.Many2one("properties.type", string="Properties Type")
+    properties_tags = fields.Many2many("properties.tags", string="Properties Tags")

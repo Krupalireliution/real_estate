@@ -1,92 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="view_properties_tree" model="ir.ui.view">
+        <field name="name">real.estate.order.tree</field>
+        <field name="model">real.estate.order</field>
+        <field name="arch" type="xml">
+            <tree string="Real Estate Orders">
+                <field name="name" string="Name"/>
+                <field name="properties_type" string="Properties Type"/>
+                <field name="description" string="Description"/>
+                <field name="postcode" string="Postcode"/>
+                <field name="date_availability" string="Date Availability"/>
+                <field name="expected_price" string="Expected Price"/>
+                <field name="selling_price" string="Selling Price"/>
+                <field name="best_price" string="Best Price"/>
+                <field name="bedrooms" string="Bedrooms" optional="hide"/>
+                <field name="living_area" string="Living Area" optional="hide"/>
+                <field name="facades" string="Facades" optional="hide"/>
+                <field name="garage" string="Garage" optional="hide"/>
+                <field name="garden" string="Garden" optional="hide"/>
+                <field name="garden_area" string="Garden Area" optional="hide"/>
+                <field name="garden_orientation" string="Garden Orientation" optional="hide"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="view_properties_tree" model="ir.ui.view">
-            <field name="name">real.estate.order.tree</field>
-            <field name="model">real.estate.order</field>
-            <field name="arch" type="xml">
-                <tree string="Real Estate Orders">
-                    <field name="name" string="Name"/>
-                    <field name="description" string="Description"/>
-                    <field name="postcode" string="Postcode"/>
-                    <field name="date_availability" string="Date Availability"/>
-                    <field name="expected_price" string="Expected Price"/>
-                    <field name="selling_price" string="Selling Price"/>
-                    <field name="bedrooms" string="Bedrooms" optional="hide"/>
-                    <field name="living_area" string="Living Area" optional="hide"/>
-                    <field name="facades" string="Facades" optional="hide"/>
-                    <field name="garage" string="Garage" optional="hide"/>
-                    <field name="garden" string="Garden" optional="hide"/>
-                    <field name="garden_area" string="Garden Area" optional="hide"/>
-                    <field name="garden_orientation" string="Garden Orientation" optional="hide"/>
-                </tree>
-            </field>
-        </record>
+    <record id="view_properties_form" model="ir.ui.view">
+        <field name="name">real.estate.order.form</field>
+        <field name="model">real.estate.order</field>
+        <field name="arch" type="xml">
+            <form string="Real Estate Order">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="name" string="Name"/>
+                            <field name="properties_type" string="Properties Type"/>
+                            <field name="date_availability" string="Date Availability"/>
+                            <field name ="postcode" string="Postcode"/>
+                        </group>
+                        <group>
+                             <field name="expected_price" string="Expected Price"/>
+                             <field name="selling_price" string="Selling Price"/>
+                             <field name="best_price" string="Best Price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <group>
+                                <field name="description" string='Description'/>
+                                <field name="bedrooms" string='Bedrooms'/>
+                                <field name="living_area" string='Living Area'/>
+                                <field name="facades" string='Facades'/>
+                                <field name="garage" string='Garage'/>
+                                <field name="garden" string='Garden'/>
+                                <field name="garden_area" string='Garden Area'/>
+                                <field name="garden_orientation" string='Garden Orientation'/>
+                            </group>
+                        </page>
+                        <page string="other info" name="Other Info">
+                            <group>
+                                <field name="salesman" string='Salesman'/>
+                                <field name="buyer" string='Buyer'/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 
-        <record id="view_properties_form" model="ir.ui.view">
-            <field name="name">real.estate.order.form</field>
-            <field name="model">real.estate.order</field>
-            <field name="arch" type="xml">
-                 <form string="Real Estate Order">
-                     <sheet>
-                         <h1>
-                             <field name="name" readonly="1"/>
-                         </h1>
-                     <group>
-                     <group>
-                        <field name="name" string=" Properties Type"/>
-                        <field name="description" string="Description"/>
-                        <field name="date_availability" string="Date Availability"/>
-                     </group>
-                     <group>
-                         <field name ="postcode" string="Postcode"/>
-                         <field name="expected_price" string="Expected Price"/>
-                         <field name="selling_price" string="Selling Price"/>
-                     </group>
-                     </group>
-                         <notebook>
-                             <page string="Description" name="description">
-                                 <group>
-                                     <field name="bedrooms" string='Bedrooms'/>
-                                     <field name="living_area" string='Living Area'/>
-                                     <field name="facades" string='Facades'/>
-                                     <field name="garage" string='Garage'/>
-                                     <field name="garden" string='Garden'/>
-                                     <field name="garden_area" string='Garden Area'/>
-                                     <field name="garden_orientation" string='Garden Orientation'/>
-                                 </group>
-                             </page>
-                         </notebook>
-                     </sheet>
-                 </form>
-            </field>
-        </record>
+    <record id="view_properties_search" model="ir.ui.view">
+        <field name="name">real.estate.order.search</field>
+        <field name="model">real.estate.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name"/>
+                <field name="properties_type" string="Properties Type"/>
+                <field name="description" string="Description"/>
+                <field name="postcode" string="Postcode"/>
+                <field name="date_availability" string="Date Availability"/>
+                <field name="expected_price" string="Expected Price"/>
+                <field name="selling_price" string="Selling Price"/>
+                <field name="best_price" string="Best Price"/>
+                <field name="bedrooms" string="Bedrooms"/>
+                <field name="living_area" string="Living Area"/>
+                <field name="facades" string="Facades"/>
+                <field name="garage" string="Garage"/>
+                <field name="garden" string="Garden"/>
+                <field name="garden_area" string="Garden Area"/>
+                <field name="garden_orientation" string="Garden Orientation"/>
+            </search>
+        </field>
+    </record>
 
+    <record id="real_estate_properties_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">real.estate.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
-        <record id="real_estate_properties_action" model="ir.actions.act_window">
-            <field name="name">Properties</field>
-            <field name="res_model">real.estate.order</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+    <menuitem id="real_estate_order_menu_root"
+              name="Real Estate"
+              web_icon="real_estate,static\description\logo.png"
+              sequence="1"/>
 
-
-        <menuitem id="real_estate_order_menu_root"
-            name="real estate"
-            web_icon="real_estate,static\description\logo.png"
-            sequence="1"/>
-
-        <menuitem id="real_estate_menu"
-              name="advertisement"
+    <menuitem id="real_estate_menu"
+              name="Advertisement"
               parent="real_estate.real_estate_order_menu_root"
-              sequence="2"/>
+              action="real_estate_properties_action"
+              sequence="1"/>
 
-        <menuitem id="real_estate_properties_menu"
-              name="properties"
+    <menuitem id="real_estate_properties_menu"
+              name="Properties"
               parent="real_estate.real_estate_menu"
               action="real_estate_properties_action"
-              sequence="3"/>
-    
+              sequence="1"/>
 
 </odoo>

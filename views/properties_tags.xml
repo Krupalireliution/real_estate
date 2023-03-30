@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_properties_tags_tree" model="ir.ui.view">
+        <field name="name">properties.tags.tree</field>
+        <field name="model">properties.tags</field>
+        <field name="arch" type="xml">
+            <tree string="Properties Tags">
+                <field name="properties_tags" string="Properties Tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_properties_tags_form" model="ir.ui.view">
+        <field name="name">properties.tags.form</field>
+        <field name="model">properties.tags</field>
+        <field name="arch" type="xml">
+            <form string="Properties Tags">
+                <sheet>
+                    <group>
+                        <gruop>
+                            <field name="properties_tags" string="Properties Tags"/>
+                        </gruop>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_properties_Tags_search" model="ir.ui.view">
+        <field name="name">properties.tags.search</field>
+        <field name="model">properties.tags</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="properties_tags" string="Properties Tags"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="real_estate_properties_tags_action" model="ir.actions.act_window">
+        <field name="name">Properties Tags</field>
+        <field name="res_model">properties.tags</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="real_estate_settings_menu"
+              name="Settings"
+              parent="real_estate.real_estate_order_menu_root"
+              sequence="2"/>
+
+    <menuitem id="real_estate_properties_tags_menu"
+              name="Properties Tags"
+              parent="real_estate.real_estate_settings_menu"
+              action="real_estate_properties_tags_action"
+              sequence="3"/>
+
+</odoo>
