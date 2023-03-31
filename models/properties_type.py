@@ -18,4 +18,4 @@ class PropertiesType(models.Model):
     _name = "properties.type"
     _description = "Properties Type"
 
-    properties_type = fields.Char(string='Properties Type')
+    name = fields.Char(string='Name')

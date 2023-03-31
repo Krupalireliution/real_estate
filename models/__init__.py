@@ -4,3 +4,4 @@
 from . import real_estate_order
 from . import properties_type
 from . import properties_tags
+from . import properties_offer

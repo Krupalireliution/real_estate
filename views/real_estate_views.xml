@@ -6,8 +6,9 @@
         <field name="model">real.estate.order</field>
         <field name="arch" type="xml">
             <tree string="Real Estate Orders">
+                <field name ="properties_type_id" string="Properties Type"/>
+                <field name ="properties_tags_ids" string="Properties Tags"/>
                 <field name="name" string="Name"/>
-                <field name="properties_type" string="Properties Type"/>
                 <field name="description" string="Description"/>
                 <field name="postcode" string="Postcode"/>
                 <field name="date_availability" string="Date Availability"/>
@@ -35,9 +36,11 @@
                         <field name="name"/>
                     </h1>
                     <group>
+                        <field name="properties_tags_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
                         <group>
-                            <field name="name" string="Name"/>
-                            <field name="properties_type" string="Properties Type"/>
+                            <field name ="properties_type_id" string="Properties Type"/>
                             <field name="date_availability" string="Date Availability"/>
                             <field name ="postcode" string="Postcode"/>
                         </group>
@@ -48,7 +51,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Description" name="description">
+                        <page string="Description">
                             <group>
                                 <field name="description" string='Description'/>
                                 <field name="bedrooms" string='Bedrooms'/>
@@ -60,7 +63,9 @@
                                 <field name="garden_orientation" string='Garden Orientation'/>
                             </group>
                         </page>
-                        <page string="other info" name="Other Info">
+                        <page string="offers">
+                        </page>
+                        <page string="other info">
                             <group>
                                 <field name="salesman" string='Salesman'/>
                                 <field name="buyer" string='Buyer'/>
@@ -79,7 +84,6 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name" string="Name"/>
-                <field name="properties_type" string="Properties Type"/>
                 <field name="description" string="Description"/>
                 <field name="postcode" string="Postcode"/>
                 <field name="date_availability" string="Date Availability"/>

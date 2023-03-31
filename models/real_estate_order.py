@@ -19,10 +19,8 @@ class RealEstate(models.Model):
     _description = "Real Estate"
 
     name = fields.Char(string='Name', required=False, copy=False, readonly=False)
-    properties_type = fields.Char(string='Properties Type', required=False, copy=False, readonly=False)
     description = fields.Text(string='Description', required=False, copy=False, readonly=False)
     postcode = fields.Char(string='Postcode', required=False, copy=False, readonly=False)
-    properties_tags = fields.Char(string='Properties Tags', required=False, copy=False, readonly=False)
     date_availability = fields.Date(string='Data Availability', required=False, copy=False, readonly=False)
     expected_price = fields.Float(string='Expected Price', required=False, copy=False, readonly=False)
     selling_price = fields.Float(string='Selling Price', required=False, copy=False, readonly=False)
@@ -39,7 +37,7 @@ class RealEstate(models.Model):
         ('east','East'),
         ('west','West')
     ])
-    salesman = fields.Char(string='Salesman')
-    buyer = fields.Char(string='Buyer')
-    properties_type = fields.Many2one("properties.type", string="Properties Type")
-    properties_tags = fields.Many2many("properties.tags", string="Properties Tags")
+    properties_type_id = fields.Many2one("properties.type", string="Properties Type")
+    salesman = fields.Many2one("res.users", string='Salesman')
+    buyer = fields.Many2one("res.partner", string='Buyer')
+    properties_tags_ids = fields.Many2many("properties.tags", string="Properties Tags")

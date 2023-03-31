@@ -6,7 +6,7 @@
         <field name="model">properties.type</field>
         <field name="arch" type="xml">
             <tree string="Properties Type">
-                <field name="properties_type" string="Properties Type"/>
+                <field name="name" string="Name"/>
             </tree>
         </field>
     </record>
@@ -18,22 +18,10 @@
             <form string="Properties Type">
                 <sheet>
                     <group>
-                        <gruop>
-                            <field name="properties_type" string="Properties Type"/>
-                        </gruop>
+                            <field name="name"/>
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record id="view_properties_Type_search" model="ir.ui.view">
-        <field name="name">properties.type.search</field>
-        <field name="model">properties.type</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="properties_type" string="Properties Type"/>
-            </search>
         </field>
     </record>
 

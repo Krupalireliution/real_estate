@@ -14,8 +14,11 @@ from odoo.addons.payment import utils as payment_utils
 
 
 
-class PropertiesTags(models.Model):
-    _name = "properties.tags"
-    _description = "Properties Tags"
+class PropertiesOffers(models.Model):
+    _name = "properties.offers"
+    _description = "Properties Offers"
 
-    name = fields.Char(string='Name')
+    price = fields.Float(string='Price')
+    status =fields.Selection(copy=False, selection=[('accepted', 'Accepted'), ('refused', 'Refused')])
+    partner_id = fields.Many2one ("res.partner", required=True)
+    property_id = fields.Many2one ("estate.property", required=True)
