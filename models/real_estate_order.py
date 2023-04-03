@@ -23,8 +23,7 @@ class RealEstate(models.Model):
     postcode = fields.Char(string='Postcode', required=False, copy=False, readonly=False)
     date_availability = fields.Date(string='Data Availability', required=False, copy=False, readonly=False)
     expected_price = fields.Float(string='Expected Price', required=False, copy=False, readonly=False)
-    selling_price = fields.Float(string='Selling Price', required=False, copy=False, readonly=False)
-    best_price = fields.Float(string='Best Price', required=False, copy=False, readonly=False)
+    selling_price = fields.Float(string='Selling Price', readonly=True)
     bedrooms = fields.Integer(string='Bedrooms', required=False, copy=False, readonly=False)
     living_area = fields.Integer(string='Living Area', required=False, copy=False, readonly=False)
     facades = fields.Integer(string='Facades', required=False, copy=False, readonly=False)
@@ -41,3 +40,11 @@ class RealEstate(models.Model):
     salesman = fields.Many2one("res.users", string='Salesman')
     buyer = fields.Many2one("res.partner", string='Buyer')
     properties_tags_ids = fields.Many2many("properties.tags", string="Properties Tags")
+    offer_ids = fields.One2many("properties.offers", inverse_name="property_id")
+
+
+    @api.onchange("garden")
+    def onchange_garden(self):
+        if self.garden:
+            if self.garden.garden_area:
+                 self.garden_area = self.garden.garden_area

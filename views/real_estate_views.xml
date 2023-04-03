@@ -14,7 +14,6 @@
                 <field name="date_availability" string="Date Availability"/>
                 <field name="expected_price" string="Expected Price"/>
                 <field name="selling_price" string="Selling Price"/>
-                <field name="best_price" string="Best Price"/>
                 <field name="bedrooms" string="Bedrooms" optional="hide"/>
                 <field name="living_area" string="Living Area" optional="hide"/>
                 <field name="facades" string="Facades" optional="hide"/>
@@ -47,7 +46,6 @@
                         <group>
                              <field name="expected_price" string="Expected Price"/>
                              <field name="selling_price" string="Selling Price"/>
-                             <field name="best_price" string="Best Price"/>
                         </group>
                     </group>
                     <notebook>
@@ -64,6 +62,13 @@
                             </group>
                         </page>
                         <page string="offers">
+                            <field name="offer_ids">
+                                <tree string="Properties Offers" editable="bottom">
+                                    <field name="price" string="Price"/>
+                                    <field name="partner_id" string="Partner"/>
+                                    <field name="status" string="Status"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="other info">
                             <group>
@@ -89,7 +94,6 @@
                 <field name="date_availability" string="Date Availability"/>
                 <field name="expected_price" string="Expected Price"/>
                 <field name="selling_price" string="Selling Price"/>
-                <field name="best_price" string="Best Price"/>
                 <field name="bedrooms" string="Bedrooms"/>
                 <field name="living_area" string="Living Area"/>
                 <field name="facades" string="Facades"/>

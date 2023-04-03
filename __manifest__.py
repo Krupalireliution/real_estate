@@ -12,7 +12,6 @@
         'views/real_estate_views.xml',
         'views/properties_type.xml',
         'views/properties_tags.xml',
-        'views/properties_offers.xml'
     ],
     'application': True,
     'installable': True,
