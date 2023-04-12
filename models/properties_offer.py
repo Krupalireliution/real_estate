@@ -21,4 +21,7 @@ class PropertiesOffers(models.Model):
     price = fields.Float(string='Price')
     status =fields.Selection(copy=False, selection=[('accepted', 'Accepted'), ('refused', 'Refused')])
     partner_id = fields.Many2one("res.partner", required=True)
-    property_id = fields.Many2one("estate.property", required=True)
+    property_id = fields.Many2one("real.estate.order", required=True)
+    best_offer = fields.Float(string='Best Offer', compute="_compute_best_offer")
+    validity = fields.Integer(string='Validity')
+    date_deadline = fields.Date(string='Date Deadline')

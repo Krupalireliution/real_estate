@@ -46,6 +46,7 @@
                         <group>
                              <field name="expected_price" string="Expected Price"/>
                              <field name="selling_price" string="Selling Price"/>
+                             <field name="best_offer" string="Best Offer"/>
                         </group>
                     </group>
                     <notebook>
@@ -59,11 +60,12 @@
                                 <field name="garden" string='Garden'/>
                                 <field name="garden_area" string='Garden Area'/>
                                 <field name="garden_orientation" string='Garden Orientation'/>
+                                <field name="total" string='Total Area'/>
                             </group>
                         </page>
                         <page string="offers">
                             <field name="offer_ids">
-                                <tree string="Properties Offers" editable="bottom">
+                                <tree editable="bottom">
                                     <field name="price" string="Price"/>
                                     <field name="partner_id" string="Partner"/>
                                     <field name="status" string="Status"/>

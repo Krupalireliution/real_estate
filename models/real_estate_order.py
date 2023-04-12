@@ -41,10 +41,25 @@ class RealEstate(models.Model):
     buyer = fields.Many2one("res.partner", string='Buyer')
     properties_tags_ids = fields.Many2many("properties.tags", string="Properties Tags")
     offer_ids = fields.One2many("properties.offers", inverse_name="property_id")
-
+    total = fields.Float(compute="_compute_total")
 
     @api.onchange("garden")
-    def onchange_garden(self):
-        if self.garden:
-            if self.garden.garden_area:
-                 self.garden_area = self.garden.garden_area
+    def _onchange_garden(self):
+        for rec in self:
+            if rec.garden:
+                rec.garden_orientation = "west"
+            if rec.garden:
+                 rec.garden_area = 100
+            else:
+                rec.garden_orientation = None
+                rec.garden_area = 0
+
+    @api.depends("living_area", "garden_area")
+    def _compute_total(self):
+        for record in self:
+             record.total = record.living_area + record.garden_area
+
+    @api.depends("partner_id.price")
+    def _compute_best_offer(self):
+        for record in self:
+            record.description = "Test for partner %s" % record.partner_id.price
